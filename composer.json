@@ -1,0 +1,11 @@
+{
+    "name": "crowdstar/job-worker",
+    "autoload": {
+        "psr-4": {"CrowdStar\\JobWorker\\": "src/"}
+    },
+    "require" : {
+        "kamisama/php-resque-ex": "1.3.0",
+        "kamisama/php-resque-ex-scheduler": "1.2.3"
+    }
+}
+
