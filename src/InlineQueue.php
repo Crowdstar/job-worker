@@ -18,7 +18,7 @@ class InlineQueue extends AbstractQueue
      *
      * @return string
      */
-    public function addJob($queue, $callback, $params, $track_status=false)
+    public function addJob($queue, $callback, $params, $track_status = false)
     {
         return call_user_func_array($callback, $params);
     }
@@ -32,7 +32,7 @@ class InlineQueue extends AbstractQueue
      *
      * @return bool|string
      */
-    public function addUniqueJob($queue, $callback, $unique_job_key, $params, $track_status=false)
+    public function addUniqueJob($queue, $callback, $unique_job_key, $params, $track_status = false)
     {
         $this->addJob($queue, $callback, $params, $track_status);
     }
@@ -58,6 +58,4 @@ class InlineQueue extends AbstractQueue
     {
         return 0;
     }
-
 }
-

@@ -38,7 +38,7 @@ class Queue extends AbstractQueue
             $queue,
             'CrowdStar\JobWorker\Job',
             array(
-                $this->_serialize($callback, $params, $this->_bootstrap_file_path)
+                $this->serialize($callback, $params, $this->bootstrap_file_path)
             ),
             $track_status
         );
@@ -67,7 +67,7 @@ class Queue extends AbstractQueue
             $queue,
             'CrowdStar\JobWorker\UniqueJob',
             array(
-                $this->_serialize($callback, $params, $this->_bootstrap_file_path, $unique_job_key)
+                $this->serialize($callback, $params, $this->bootstrap_file_path, $unique_job_key)
             ),
             $track_status
         );
@@ -88,7 +88,7 @@ class Queue extends AbstractQueue
             $queue,
             'CrowdStar\JobWorker\Job',
             array(
-                $this->_serialize($callback, $params, $this->_bootstrap_file_path)
+                $this->serialize($callback, $params, $this->bootstrap_file_path)
             ),
             $track_status
         );
@@ -105,4 +105,3 @@ class Queue extends AbstractQueue
         return \Resque::size($queue);
     }
 }
-

@@ -10,7 +10,7 @@ abstract class AbstractQueue
 
     const UNIQUE_JOB_LOCK_TIMEOUT = 86400;
 
-    protected $_bootstrap_file_path = null;
+    protected $bootstrap_file_path = null;
 
     /**
      * @param $queue
@@ -114,7 +114,7 @@ abstract class AbstractQueue
             throw new \InvalidArgumentException;
         }
 
-        $this->_bootstrap_file_path = $file_path;
+        $this->bootstrap_file_path = $file_path;
     }
 
     /**
@@ -125,7 +125,7 @@ abstract class AbstractQueue
      *
      * @return string
      */
-    protected function _serialize($callback, $params, $bootstrap_file_path, $unique_job_key=null)
+    protected function serialize($callback, $params, $bootstrap_file_path, $unique_job_key = null)
     {
         if (isset($unique_job_key)) {
             return serialize(compact('callback', 'params', 'bootstrap_file_path', 'unique_job_key'));
@@ -159,4 +159,3 @@ abstract class AbstractQueue
         return $this->getQueueSize("low");
     }
 }
-
