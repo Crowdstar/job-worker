@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/Crowdstar/job-worker.svg?branch=master)](https://travis-ci.org/Crowdstar/job-worker
+[![Build Status](https://travis-ci.org/Crowdstar/job-worker.svg?branch=master)](https://travis-ci.org/Crowdstar/job-worker)
 
 # Wrapper for adding serialized self-contained Resque jobs to a queue
 
