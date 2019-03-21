@@ -38,22 +38,24 @@ class InlineQueue extends AbstractQueue
     }
 
     /**
-     * @param $queue
-     * @param $at
-     * @param $callback
-     * @param $params
-     * @param $track_status
+     * @param  $queue
+     * @param  $at
+     * @param  $callback
+     * @param  $params
+     * @param  $track_status
      * @return void
      * @throws \Exception
      */
-    public function scheduleJob($queue, $at, $callback, $params, $track_status) {
+    public function scheduleJob($queue, $at, $callback, $params, $track_status)
+    {
         throw new \Exception("Job scheduling is not supported in inline queue");
     }
 
     /**
      * @return int
      */
-    public function getQueueSize($queue){
+    public function getQueueSize($queue)
+    {
         return 0;
     }
 

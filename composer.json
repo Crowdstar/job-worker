@@ -3,13 +3,11 @@
     "description": "Wrapper for adding serialized self-contained Resque jobs to a queue",
     "homepage": "https://www.glu.com",
     "license": "Apache-2.0",
-    "require": {
-        "php": ">=5.3"
-    },
     "autoload": {
         "psr-4": {"CrowdStar\\JobWorker\\": "src/"}
     },
     "require" : {
+        "php": ">=5.3",
         "kamisama/php-resque-ex": "1.3.0",
         "kamisama/php-resque-ex-scheduler": "1.2.3"
     },

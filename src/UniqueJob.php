@@ -16,9 +16,11 @@ class UniqueJob extends Job
     {
         list($this->_callback, $this->_params, $this->_bootstrap_file_path, $this->_unique_job_key) = $this->_unserialize($this->args[0]);
         $unique_job_key = $this->_unique_job_key;
-        register_shutdown_function(function () use ($unique_job_key) {
-            \Resque::redis()->del($unique_job_key);
-        });
+        register_shutdown_function(
+            function () use ($unique_job_key) {
+                \Resque::redis()->del($unique_job_key);
+            }
+        );
     }
 
     /**

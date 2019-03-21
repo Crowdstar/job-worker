@@ -19,7 +19,8 @@ class Queue extends AbstractQueue
      * @param string $server
      * @param string $password
      */
-    public function __construct($server, $password = null) {
+    public function __construct($server, $password = null)
+    {
         \Resque::setBackend($server, 0, 'resque', $password);
     }
 
@@ -73,14 +74,15 @@ class Queue extends AbstractQueue
     }
 
     /**
-     * @param $queue
-     * @param $at
-     * @param $callback
-     * @param $params
-     * @param $track_status
+     * @param  $queue
+     * @param  $at
+     * @param  $callback
+     * @param  $params
+     * @param  $track_status
      * @return mixed|string
      */
-    public function scheduleJob($queue, $at, $callback, $params, $track_status) {
+    public function scheduleJob($queue, $at, $callback, $params, $track_status)
+    {
         return ResqueScheduler::enqueueAt(
             $at,
             $queue,
@@ -94,10 +96,12 @@ class Queue extends AbstractQueue
 
     /**
      * Returns the size of a given queue
-     * @param $queue
+     *
+     * @param  $queue
      * @return int
      */
-    public function getQueueSize($queue){
+    public function getQueueSize($queue)
+    {
         return \Resque::size($queue);
     }
 }

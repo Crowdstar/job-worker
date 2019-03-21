@@ -25,7 +25,8 @@ class Job
         list($this->_callback, $this->_params, $this->_bootstrap_file_path) = $this->_unserialize($this->args[0]);
     }
 
-    public function perform() {
+    public function perform()
+    {
         if (!is_null($this->_bootstrap_file_path)) {
             include $this->_bootstrap_file_path;
         }

@@ -36,11 +36,12 @@ abstract class AbstractQueue
     /**
      * Add a high-priority job to the queue
      *
-     * @param array    $callback     array('Class', 'function')  // for static functions in a class
-     *                               array($this, '_getAndCacheData') // do allow member methods of object instances
-     *                               // do not allow callbacks on objects -- can't serialize them
-     * @param array    $params       Parameters for the job.  Must be serializable.
-     * @param boolean  $track_status Set to true to be able to monitor the status of a job.
+     * @param array   $callback     array('Class', 'function')  // for static functions in a class
+     *                              array($this, '_getAndCacheData') // do allow member methods of
+     *                              object instances // do not allow callbacks on objects -- can't
+     *                              serialize them
+     * @param array   $params       Parameters for the job.  Must be serializable.
+     * @param boolean $track_status Set to true to be able to monitor the status of a job.
      *
      * @return string  ID of the job
      */
@@ -52,11 +53,12 @@ abstract class AbstractQueue
     /**
      * Add a low-priority job to the queue
      *
-     * @param array    $callback     array('Class', 'function')  // for static functions in a class
-     *                               array($this, '_getAndCacheData') // do allow member methods of object instances
-     *                               // do not allow callbacks on objects -- can't serialize them
-     * @param array    $params       Parameters for the job.  Must be serializable.
-     * @param boolean  $track_status Set to true to be able to monitor the status of a job.
+     * @param array   $callback     array('Class', 'function')  // for static functions in a class
+     *                              array($this, '_getAndCacheData') // do allow member methods of
+     *                              object instances // do not allow callbacks on objects -- can't
+     *                              serialize them
+     * @param array   $params       Parameters for the job.  Must be serializable.
+     * @param boolean $track_status Set to true to be able to monitor the status of a job.
      *
      * @return string  ID of the job
      */
@@ -68,12 +70,13 @@ abstract class AbstractQueue
     /**
      * Add a high-priority unique job to the queue
      *
-     * @param array    $callback     array('Class', 'function')  // for static functions in a class
-     *                               array($this, '_getAndCacheData') // do allow member methods of object instances
-     *                               // do not allow callbacks on objects -- can't serialize them
-     * @param string   $unique_job_key Unique job key
-     * @param array    $params       Parameters for the job.  Must be serializable.
-     * @param boolean  $track_status Set to true to be able to monitor the status of a job.
+     * @param array   $callback       array('Class', 'function')  // for static functions in a class
+     *                                array($this, '_getAndCacheData') // do allow member methods of
+     *                                object instances // do not allow callbacks on objects -- can't
+     *                                serialize them
+     * @param string  $unique_job_key Unique job key
+     * @param array   $params         Parameters for the job.  Must be serializable.
+     * @param boolean $track_status   Set to true to be able to monitor the status of a job.
      *
      * @return string  ID of the job
      */
@@ -85,12 +88,13 @@ abstract class AbstractQueue
     /**
      * Add a low-priority unique job to the queue
      *
-     * @param array    $callback     array('Class', 'function')  // for static functions in a class
-     *                               array($this, '_getAndCacheData') // do allow member methods of object instances
-     *                               // do not allow callbacks on objects -- can't serialize them
-     * @param string   $unique_job_key Unique job key
-     * @param array    $params       Parameters for the job.  Must be serializable.
-     * @param boolean  $track_status Set to true to be able to monitor the status of a job.
+     * @param array   $callback       array('Class', 'function')  // for static functions in a class
+     *                                array($this, '_getAndCacheData') // do allow member methods of
+     *                                object instances // do not allow callbacks on objects -- can't
+     *                                serialize them
+     * @param string  $unique_job_key Unique job key
+     * @param array   $params         Parameters for the job.  Must be serializable.
+     * @param boolean $track_status   Set to true to be able to monitor the status of a job.
      *
      * @return string  ID of the job
      */
@@ -104,7 +108,8 @@ abstract class AbstractQueue
      *
      * @param $file_path
      */
-    public function addBootstrapFilePath($file_path) {
+    public function addBootstrapFilePath($file_path)
+    {
         if (!file_exists($file_path)) {
             throw new \InvalidArgumentException;
         }
@@ -128,7 +133,8 @@ abstract class AbstractQueue
         return serialize(compact('callback', 'params', 'bootstrap_file_path'));
     }
 
-    protected function createUniqueKey($queue, $key) {
+    protected function createUniqueKey($queue, $key)
+    {
         return 'unique:queue:'.$queue.':job:'.$key;
     }
 
@@ -140,14 +146,16 @@ abstract class AbstractQueue
     /**
      * @return int
      */
-    public function getHighPriorityQueueSize(){
+    public function getHighPriorityQueueSize()
+    {
         return $this->getQueueSize("high");
     }
 
     /**
      * @return int
      */
-    public function getLowPriorityQueueSize(){
+    public function getLowPriorityQueueSize()
+    {
         return $this->getQueueSize("low");
     }
 }
